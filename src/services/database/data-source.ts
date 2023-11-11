@@ -1,4 +1,5 @@
 import { DataSource } from "typeorm";    // CONFIGURAÇÃO DO BANCO DE DADOS
+import { User } from "./modules/users/user.entity";
 
 
 require('dotenv').config()
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
-    entities: [],
+    entities: [User],
     synchronize: true,
 });
 
