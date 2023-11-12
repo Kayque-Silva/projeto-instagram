@@ -1,4 +1,6 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Post } from "../post/entities/post.entity";
+import { Comment } from "../comments/entities/comment.entity";
 
 
 @Entity("users")
@@ -32,5 +34,12 @@ export class User {
 
     @DeleteDateColumn()  // Esse Decorator é usado para exclusões de uma propriedade marcando a data e hora em que a entidade foi "deletada".
     deleted_at: Date;
+
+    // Relacionamentos
+    @OneToMany(() => Post, (post) => post.user)  // Indica que um usuário pode ter vários posts associados a ele
+    posts: Post[];
+
+    @OneToMany(() => Comment, (comment) => comment.user)
+    comments: Comment[];
 
 }
