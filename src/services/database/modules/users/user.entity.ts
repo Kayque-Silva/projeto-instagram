@@ -1,11 +1,11 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Post } from "../post/entities/post.entity";
 import { Comment } from "../comments/entities/comment.entity";
 
 
 @Entity("users")
 export class User {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
@@ -14,7 +14,7 @@ export class User {
     @Column({unique: true}) // "unique" serve para não haver o cadastro de dois usuários com o mesmo e-mail.
     email: string;
 
-    @Column()
+    @Column({nullable: true})
     bio: string;
 
     @Column({default: 0}) // "default" é utilizado para definir um valor padrão, nesse caso é zero. já que nessa aplicação o usuário deve começar com zero seguidor.

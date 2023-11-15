@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { startDatabase } from "./services/database/data-source";
 import { startWebServer } from "./app";
 
