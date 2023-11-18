@@ -18,8 +18,11 @@ export const UserRoutes = (): Router => {
     // PATCH /users/:user_id
     router.patch("/:user_id", UserController.updateUser);
 
-    //DELETE /users/:user_id
+    // DELETE /users/:user_id
     router.delete("/:user_id", UserController.deleteUser);
 
+    // POST /users/authenticate
+    router.post("/authenticate", UserController.authenticate);
+
     return router;
-};
+}; 

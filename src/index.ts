@@ -1,4 +1,5 @@
 require('dotenv').config();
+import "reflect-metadata";
 import { startDatabase } from "./services/database/data-source";
 import { startWebServer } from "./app";
 
