@@ -12,8 +12,8 @@ export class Post {
     @Column()
     image_url: string;
 
-    @Column()
-    label: string;
+    @Column({ nullable: true }) // Permite que o título seja nulo
+    title: string;
 
     @Column()
     user_id: number;
